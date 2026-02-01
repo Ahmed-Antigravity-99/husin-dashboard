@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "14.2.15",
@@ -15,11 +16,9 @@
     "firebase-admin": "^12.6.0",
     "lucide-react": "latest",
     "clsx": "latest",
-    "tailwind-merge": "latest"
-  },
-  "devDependencies": {
-    "postcss": "latest",
+    "tailwind-merge": "latest",
     "tailwindcss": "latest",
+    "postcss": "latest",
     "autoprefixer": "latest"
   }
 }
