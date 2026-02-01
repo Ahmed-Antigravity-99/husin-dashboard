@@ -1,18 +1,22 @@
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Husin Dashboard",
-  description: "Automated Shop Management",
+  title: "Husin Network Admin",
+  description: "Secure Management Dashboard for Husin Network",
 };
 
-// Change to async function
-export default async function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex font-sans antialiased">
-        <Sidebar />
-        <main className="flex-1 bg-gray-50 min-h-screen">
+      <body className={inter.className}>
+        {/* The {children} is where your login page or dashboard 
+            will be "injected." This setup allows for smooth 
+            transitions between routes.
+        */}
+        <main className="min-h-screen bg-gray-50">
           {children}
         </main>
       </body>
