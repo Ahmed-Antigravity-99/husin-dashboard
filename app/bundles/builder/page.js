@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { productsRef } from "@/lib/firestore";
 
 export default async function BundleBuilderPage() {
@@ -23,3 +24,4 @@ export default async function BundleBuilderPage() {
     </div>
   );
 }
+
