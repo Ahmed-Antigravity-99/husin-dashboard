@@ -5,17 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.16",
-    "firebase-admin": "^12.0.0",
     "next": "15.0.7",
-    "postcss": "^8.4.31",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss": "^3.4.0",
-    "uuid": "^9.0.0"
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "firebase": "^11.2.0",
+    "firebase-admin": "^13.0.0",
+    "lucide-react": "latest",
+    "clsx": "latest",
+    "tailwind-merge": "latest"
+  },
+  "devDependencies": {
+    "postcss": "latest",
+    "tailwindcss": "latest"
   }
 }
-
