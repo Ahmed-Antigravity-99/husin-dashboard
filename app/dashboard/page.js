@@ -5,30 +5,32 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 export default function DashboardPage() {
-  const [isChecking, setIsChecking] = useState(true);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
-    // This listener is essential. It waits for the session to load.
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsChecking(false); // We found the user, stay here!
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        setLoading(false);
       } else {
-        router.push("/login"); // Truly no user, go away.
+        // Only redirect if we are SURE there is no user session
+        router.replace("/login");
       }
     });
-
     return () => unsubscribe();
   }, [router]);
 
-  if (isChecking) {
-    return <div className="h-screen flex items-center justify-center font-bold">Verifying Session...</div>;
+  if (loading) {
+    return <div className="p-10 text-center">Verifying Admin Session...</div>;
   }
 
   return (
-    <div className="p-10">
-      <h1>Welcome to your Husin Dashboard!</h1>
-      {/* Dashboard content here */}
+    <div className="p-8">
+      <h1 className="text-2xl font-bold">Husin Admin Dashboard</h1>
+      <p className="mt-2 text-gray-600">Logged in as: {user?.email}</p>
+      {/* Rest of your dashboard content */}
     </div>
   );
 }
