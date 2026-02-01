@@ -1,13 +1,18 @@
+// app/products/page.js
 import ProductTable from "@/components/ProductTable";
 
-// We make the function 'async' to match Next.js 15 standards
 export default async function ProductsPage({ searchParams }) {
-  // We unwrap searchParams in case you add filtering/searching later
-  const params = await searchParams;
+  // Always unwrap searchParams in Next.js 15 to avoid build warnings
+  await searchParams;
 
   return (
-    <div className="p-6">
+    <main className="p-6">
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-gray-800">Product Management</h1>
+        <p className="text-sm text-gray-500">Monitor and approve agent findings below.</p>
+      </div>
+      
       <ProductTable />
-    </div>
+    </main>
   );
 }
