@@ -1,6 +1,7 @@
 {
   "name": "husin-dashboard",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,3 +18,4 @@
     "uuid": "^9.0.0"
   }
 }
+
