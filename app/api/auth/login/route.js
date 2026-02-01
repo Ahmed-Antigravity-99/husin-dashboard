@@ -2,8 +2,6 @@ export const dynamic = "force-dynamic";
 import { adminDb } from "@/lib/firebaseAdmin";
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic"; // <--- ADD THIS LINE
-
 export async function POST(request) {
   try {
     const { token } = await request.json();
@@ -13,4 +11,5 @@ export async function POST(request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
 
