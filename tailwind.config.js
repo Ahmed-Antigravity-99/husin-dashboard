@@ -1,10 +1,18 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    "./app/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}"
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        husin: {
+          blue: "#2563eb",
+          dark: "#1e40af",
+        }
+      }
+    },
   },
   plugins: [],
 };
