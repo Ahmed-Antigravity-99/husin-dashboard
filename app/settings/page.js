@@ -1,4 +1,4 @@
-export default function SettingsPage() {
+export default async function SettingsPage() {
   return (
     <div className="p-10">
       <h1 className="text-3xl font-bold mb-6">Settings</h1>
