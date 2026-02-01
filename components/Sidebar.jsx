@@ -1,37 +1,46 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LayoutDashboard, Package, Boxes, Settings } from "lucide-react";
 
 export default function Sidebar() {
   const path = usePathname();
 
-  const linkClass = (href: string) =>
-    `block px-4 py-2 rounded ${
-      path === href ? "bg-blue-600 text-white" : "hover:bg-gray-200"
+  // FIX: Removed the ": string" type annotation
+  const linkClass = (href) =>
+    `flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+      path === href 
+        ? "bg-blue-600 text-white shadow-md" 
+        : "text-gray-600 hover:bg-gray-100"
     }`;
 
   return (
-    <div className="w-64 h-screen border-r p-4">
-      <h2 className="text-xl font-bold mb-6">HUSIN Admin</h2>
+    <aside className="w-64 bg-white border-r min-h-screen p-4 flex flex-col fixed left-0 top-0 h-full">
+      <div className="mb-8 px-4 py-2">
+        <h1 className="text-xl font-bold text-blue-600 tracking-tight">Husin Dashboard</h1>
+      </div>
 
-      <nav className="flex flex-col gap-2">
+      <nav className="space-y-2 flex-1">
         <Link href="/" className={linkClass("/")}>
-          Dashboard
+          <LayoutDashboard size={20} />
+          <span className="font-medium">Overview</span>
         </Link>
-
         <Link href="/products" className={linkClass("/products")}>
-          Products
+          <Package size={20} />
+          <span className="font-medium">Products</span>
         </Link>
-
         <Link href="/bundles" className={linkClass("/bundles")}>
-          Bundles
-        </Link>
-
-        <Link href="/settings" className={linkClass("/settings")}>
-          Settings
+          <Boxes size={20} />
+          <span className="font-medium">Bundles</span>
         </Link>
       </nav>
-    </div>
+
+      <div className="mt-auto pt-4 border-t border-gray-100">
+        <Link href="/settings" className={linkClass("/settings")}>
+          <Settings size={20} />
+          <span className="font-medium">Settings</span>
+        </Link>
+      </div>
+    </aside>
   );
 }
