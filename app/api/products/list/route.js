@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { db } from "@/lib/firestore";
 
 export async function GET() {
@@ -6,3 +7,4 @@ export async function GET() {
 
   return Response.json(products);
 }
+
