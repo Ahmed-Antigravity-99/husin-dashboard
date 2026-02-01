@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "postcss": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "15.0.7"
   }
 }
