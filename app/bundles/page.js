@@ -1,6 +1,10 @@
 import { bundlesRef } from "@/lib/firestore";
 
-export default async function BundlesPage() {
+// Ensure searchParams is accepted as a promise
+export default async function BundlesPage({ searchParams }) {
+  // We await searchParams even if not used, to satisfy the Next.js 15 compiler
+  const params = await searchParams;
+
   const snapshot = await bundlesRef.get();
 
   const bundles = snapshot.docs.map((d) => ({
@@ -12,7 +16,10 @@ export default async function BundlesPage() {
     <div className="p-10">
       <h1 className="text-3xl font-bold mb-6">Bundles</h1>
 
-      <pre>{JSON.stringify(bundles, null, 2)}</pre>
+      {/* Scannable display of your data */}
+      <pre className="bg-gray-100 p-4 rounded-lg overflow-auto max-h-96">
+        {JSON.stringify(bundles, null, 2)}
+      </pre>
     </div>
   );
 }
